@@ -4,14 +4,14 @@ const mockTests = {
         {
             id: "essay-1",
             title: "The Role of Youth in National Development",
-            timeLimit: 180, // 3 minutes
-            instructions: "Write a coherent essay of 2000-2500 words with clear introduction body and conclusion."
+            timeLimit: 180,
+            instructions: "Write a coherent essay of 2000-2500 words with clear introduction, body and conclusion."
         },
         {
             id: "essay-2",
             title: "Climate Change: Challenges and Mitigation Strategies for Pakistan",
             timeLimit: 180,
-            instructions: "Discuss causes impacts and feasible solutions for Pakistan's context."
+            instructions: "Discuss causes, impacts and feasible solutions for Pakistan's context."
         },
         {
             id: "essay-3",
@@ -24,16 +24,16 @@ const mockTests = {
         {
             id: "precis-1",
             title: "Precis Writing Practice",
-            timeLimit: 30, // 3 minutes for precis
-            instructions: "Read the passage below and write a precis in one-third of the original length.",
-            passage: "Pakistan's economy faces multifaceted challenges including inflation energy shortages and trade deficits. While agricultural output remains strong industrial growth has stalled due to inconsistent policies and infrastructure gaps. The services sector particularly IT and telecom shows promise but requires skilled workforce development. Addressing these issues demands coherent fiscal reforms investment in human capital and regional cooperation to harness trade opportunities."
+            timeLimit: 30,
+            instructions: "Read the passage below and write a précis in one-third of the original length.",
+            passage: "Pakistan's economy faces multifaceted challenges including inflation, energy shortages and trade deficits. While agricultural output remains strong, industrial growth has stalled. To address these issues, the government must implement comprehensive structural reforms focusing on energy efficiency, technological innovation, and fiscal discipline. International cooperation through IMF bailout programs and World Bank initiatives has provided temporary relief, but sustainable growth requires domestic investment in infrastructure, education, and skilled workforce development."
         }
     ],
     "gen-science": [
         {
             id: "gs-1",
             title: "General Science Mixed Quiz",
-            timeLimit: 600, // 10 minutes
+            timeLimit: 600,
             questions: [
                 {
                     q: "What is the chemical formula of water?",
@@ -108,6 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const subject = card.dataset.subject;
             loadTestInterface(subject);
+            // Scroll to test container
+            document.getElementById('mock-tests').scrollIntoView({ behavior: 'smooth' });
         });
     });
 
@@ -157,7 +159,8 @@ function loadTestInterface(subject) {
 
     // Add event listeners to start buttons
     document.querySelectorAll('.btn-start-test').forEach(button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
             const testId = button.closest('.test-option').dataset.testId;
             const test = tests.find(t => t.id === testId);
             startTest(test);
@@ -185,20 +188,19 @@ function startTest(test) {
                 <p>${test.passage}</p>
             </div>
             <div id="answer-area">
-                <textarea id="test-answer" placeholder="Write your precis here..."></textarea>
+                <textarea id="test-answer" placeholder="Write your précis here..."></textarea>
                 <div id="word-count-test" class="word-count">0 words</div>
             </div>
             <div class="timer-container">
                 <div class="timer-display" id="test-timer">${formatTime(timeLeft)}</div>
-                <div class="test-controls">
-                    <button id="start-test-btn">Start</button>
+                <div class="paper-controls">
+                    <button id="start-test-btn" class="btn-explore">Start Test</button>
                     <button id="reset-test-btn" disabled>Reset</button>
-                    <button id="submit-test-btn" disabled>Submit</button>
+                    <button id="submit-test-btn" disabled>Submit Test</button>
                 </div>
             </div>
         `;
 
-        const answerArea = document.getElementById('answer-area');
         const wordCountDisplay = document.getElementById('word-count-test');
         const essayInput = document.getElementById('test-answer');
         const timerDisplay = document.getElementById('test-timer');
@@ -212,11 +214,19 @@ function startTest(test) {
             wordCountDisplay.textContent = `${wordCount} words`;
         });
 
-        startBtn.addEventListener('click', startTestTimer);
-        resetBtn.addEventListener('click', resetTest);
-        submitBtn.addEventListener('click', submitTest);
-    }
-    else if (test.questions) {
+        startBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            startTestTimer();
+        });
+        resetBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            resetTest();
+        });
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            submitEssayTest();
+        });
+    } else if (test.questions) {
         testContainer.innerHTML = `
             <div class="test-header">
                 <h2>${test.title}</h2>
@@ -225,7 +235,7 @@ function startTest(test) {
             <div id="questions-container">
                 ${test.questions.map((q, i) => `
                     <div class="question-card">
-                        <p><strong>Q${i+1}:</strong> ${q.q}</p>
+                        <p><strong>Q${i + 1}:</strong> ${q.q}</p>
                         <div class="options">
                             ${q.options.map((opt, j) => `
                                 <label class="option-label">
@@ -239,10 +249,10 @@ function startTest(test) {
             </div>
             <div class="timer-container">
                 <div class="timer-display" id="test-timer">${formatTime(timeLeft)}</div>
-                <div class="test-controls">
-                    <button id="start-test-btn">Start</button>
+                <div class="paper-controls">
+                    <button id="start-test-btn" class="btn-explore">Start Test</button>
                     <button id="reset-test-btn" disabled>Reset</button>
-                    <button id="submit-test-btn" disabled>Submit</button>
+                    <button id="submit-test-btn" disabled>Submit Test</button>
                 </div>
             </div>
         `;
@@ -252,11 +262,19 @@ function startTest(test) {
         const resetBtn = document.getElementById('reset-test-btn');
         const submitBtn = document.getElementById('submit-test-btn');
 
-        startBtn.addEventListener('click', startTestTimer);
-        resetBtn.addEventListener('click', resetTest);
-        submitBtn.addEventListener('click', submitQuizTest);
-    }
-    else {
+        startBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            startTestTimer();
+        });
+        resetBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            resetTest();
+        });
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            submitQuizTest();
+        });
+    } else {
         // Default essay test
         testContainer.innerHTML = `
             <div class="test-header">
@@ -269,10 +287,10 @@ function startTest(test) {
             </div>
             <div class="timer-container">
                 <div class="timer-display" id="test-timer">${formatTime(timeLeft)}</div>
-                <div class="test-controls">
-                    <button id="start-test-btn">Start</button>
+                <div class="paper-controls">
+                    <button id="start-test-btn" class="btn-explore">Start Test</button>
                     <button id="reset-test-btn" disabled>Reset</button>
-                    <button id="submit-test-btn" disabled>Submit</button>
+                    <button id="submit-test-btn" disabled>Submit Test</button>
                 </div>
             </div>
         `;
@@ -289,12 +307,21 @@ function startTest(test) {
             const wordCount = text === '' ? 0 : text.match(/\b\w+\b/g)?.length || 0;
             wordCountDisplay.textContent = `${wordCount} words`;
             // Enable submit only if reasonable length
-            submitBtn.disabled = wordCount < 100; // Very basic check
+            submitBtn.disabled = wordCount < 100;
         });
 
-        startBtn.addEventListener('click', startTestTimer);
-        resetBtn.addEventListener('click', resetTest);
-        submitBtn.addEventListener('click', submitEssayTest);
+        startBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            startTestTimer();
+        });
+        resetBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            resetTest();
+        });
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            submitEssayTest();
+        });
     }
 }
 
@@ -312,7 +339,7 @@ function startTestTimer() {
             clearInterval(timerInterval);
             document.getElementById('test-timer').textContent = '00:00';
             alert('Time is up! Please submit your test.');
-            submitTest(); // Auto submit on time out
+            submitTest();
         }
     }, 1000);
 }
@@ -329,11 +356,9 @@ function resetTest() {
     if (currentTest.passage) {
         document.getElementById('test-answer').value = '';
         document.getElementById('word-count-test').textContent = '0 words';
-    }
-    else if (currentTest.questions) {
+    } else if (currentTest.questions) {
         document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
-    }
-    else {
+    } else {
         document.getElementById('essay-input').value = '';
         document.getElementById('word-count').textContent = '0 words';
         document.getElementById('submit-test-btn').disabled = true;
@@ -342,8 +367,7 @@ function resetTest() {
 
 function submitTest() {
     clearInterval(timerInterval);
-    // In a real app you'd send this to a backend - here we just show results
-    alert('Test submitted! Check LocalStorage for your attempt (for demo purposes).');
+    alert('Test submitted! Your attempt has been saved.');
     saveAttempt();
     showResults();
 }
@@ -351,8 +375,8 @@ function submitTest() {
 function submitEssayTest() {
     const essayInput = document.getElementById('essay-input');
     const wordCount = essayInput.value.trim().match(/\b\w+\b/g)?.length || 0;
-    if (wordCount < 200) {
-        alert('Please write at least 200 words to submit.');
+    if (wordCount < 100) {
+        alert('Please write at least 100 words to submit.');
         return;
     }
     submitTest();
@@ -391,30 +415,32 @@ function showResults() {
         <div class="results-screen">
             <h2>Test Completed</h2>
             <p>Your attempt has been saved locally. Review your answers and try again to improve!</p>
-            <button id="try-another-btn" class="btn-start-test">Try Another Test</button>
-            <button id="view-history-btn">View Attempt History</button>
+            <div class="paper-controls">
+                <button id="try-another-btn" class="btn-explore">Try Another Test</button>
+                <button id="view-history-btn" class="btn-explore">View Attempt History</button>
+            </div>
         </div>
     `;
 
-    document.getElementById('try-another-btn').addEventListener('click', () => {
+    document.getElementById('try-another-btn').addEventListener('click', (e) => {
+        e.preventDefault();
         loadTestInterface(Object.keys(mockTests).find(key => mockTests[key].includes(currentTest)) || 'english-essay');
     });
 
-    document.getElementById('view-history-btn').addEventListener('click', () => {
+    document.getElementById('view-history-btn').addEventListener('click', (e) => {
+        e.preventDefault();
         const attempts = JSON.parse(localStorage.getItem('css-test-attempts') || '[]');
         let historyHTML = '<h3>Your Attempt History</h3>';
         if (attempts.length === 0) {
             historyHTML += '<p>No attempts recorded yet.</p>';
-        }
-        else {
-            historyHTML += '<ul>';
+        } else {
+            historyHTML += '<ul style="text-align: left;">';
             attempts.slice(-5).reverse().forEach(att => {
                 historyHTML += `<li><strong>${att.title}</strong> (${new Date(att.timestamp).toLocaleString()})`;
                 if (att.result) {
                     if (att.result.score !== undefined) {
                         historyHTML += ` - Score: ${att.result.score}/${att.result.total}`;
-                    }
-                    else {
+                    } else {
                         historyHTML += ` - Essay attempt`;
                     }
                 }
@@ -422,9 +448,10 @@ function showResults() {
             });
             historyHTML += '</ul>';
         }
-        historyHTML += '<button id="close-history">Close</button>';
+        historyHTML += '<div class="paper-controls"><button id="close-history" class="btn-explore">Close</button></div>';
         testContainer.innerHTML = historyHTML;
-        document.getElementById('close-history').addEventListener('click', () => {
+        document.getElementById('close-history').addEventListener('click', (e) => {
+            e.preventDefault();
             loadTestInterface(Object.keys(mockTests).find(key => mockTests[key].includes(currentTest)) || 'english-essay');
         });
     });
