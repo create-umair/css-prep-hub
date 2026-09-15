@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay Writing - CSS Prep Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>📝 Essay Writing Practice</h1>
+            <p>Perfect Your Essay Writing Skills</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mock-tests.html">Mock Tests</a>
+        <a href="essay-writing.html" class="active">Essay Writing</a>
+        <a href="quiz.html">Quizzes</a>
+        <a href="resources.html">Resources</a>
+        <a href="history.html">My Progress</a>
+    </nav>
+
+    <main>
+        <!-- Essay Selection View -->
+        <section id="essay-selection" class="feature-section">
+            <h2>Select an Essay Topic</h2>
+            <div id="essay-list"></div>
+        </section>
+
+        <!-- Essay Writing View -->
+        <section id="essay-writing" class="feature-section" style="display: none;">
+            <div class="essay-header">
+                <div class="essay-info">
+                    <h2 id="essay-title"></h2>
+                    <p id="essay-instructions"></p>
+                </div>
+                <div class="timer-section">
+                    <div class="timer-box">
+                        <div class="timer-label">Time Left</div>
+                        <div class="timer-display" id="timer-display">30:00</div>
+                    </div>
+                    <div class="timer-controls">
+                        <button id="timer-adjust-btn" class="btn-timer">⚙️ Adjust Time</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timer Adjustment Modal -->
+            <div id="timer-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Adjust Essay Time</h3>
+                    <div class="timer-input-group">
+                        <label for="timer-minutes">Minutes:</label>
+                        <input type="number" id="timer-minutes" min="5" max="180" value="30">
+                    </div>
+                    <div class="timer-input-group">
+                        <label for="timer-seconds">Seconds:</label>
+                        <input type="number" id="timer-seconds" min="0" max="59" value="0">
+                    </div>
+                    <div class="modal-buttons">
+                        <button id="timer-apply-btn" class="btn-primary">Apply Time</button>
+                        <button id="timer-cancel-btn" class="btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="essay-workspace">
+                <textarea id="essay-textarea" placeholder="Start typing your essay here..."></textarea>
+                <div class="word-stats">
+                    <span>Words: <strong id="word-count">0</strong></span>
+                    <span>Characters: <strong id="char-count">0</strong></span>
+                    <span>Paragraphs: <strong id="para-count">0</strong></span>
+                </div>
+            </div>
+
+            <div class="essay-actions">
+                <button id="save-essay-btn" class="btn-primary">💾 Save Essay</button>
+                <button id="submit-essay-btn" class="btn-success">✓ Submit Essay</button>
+                <button id="new-essay-btn" class="btn-secondary">← Back</button>
+            </div>
+        </section>
+
+        <!-- Essay Submitted View -->
+        <section id="essay-submitted" class="feature-section" style="display: none;">
+            <div class="success-message">
+                <h2>✓ Essay Submitted Successfully!</h2>
+                <div class="submission-stats">
+                    <div class="stat">
+                        <h4>Words Written</h4>
+                        <p id="final-word-count">0</p>
+                    </div>
+                    <div class="stat">
+                        <h4>Time Taken</h4>
+                        <p id="time-taken">0:00</p>
+                    </div>
+                    <div class="stat">
+                        <h4>Characters</h4>
+                        <p id="final-char-count">0</p>
+                    </div>
+                </div>
+                <div class="submission-actions">
+                    <button id="practice-another-btn" class="btn-primary">📝 Practice Another Essay</button>
+                    <button id="view-saved-btn" class="btn-secondary">👁️ View Saved Essays</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CSS Prep Hub. Essay Writing Practice Platform</p>
+    </footer>
+
+    <script src="essay-writing.js"></script>
+</body>
+</html>
