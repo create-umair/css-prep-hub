@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Progress - CSS Prep Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>📊 My Progress</h1>
+            <p>Track Your Learning Journey</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mock-tests.html">Mock Tests</a>
+        <a href="essay-writing.html">Essay Writing</a>
+        <a href="quiz.html">Quizzes</a>
+        <a href="resources.html">Resources</a>
+        <a href="history.html" class="active">My Progress</a>
+    </nav>
+
+    <main>
+        <!-- Statistics Section -->
+        <section class="feature-section">
+            <h2>📈 Your Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card-large">
+                    <div class="stat-number" id="total-tests">0</div>
+                    <div class="stat-label">Tests Taken</div>
+                </div>
+                <div class="stat-card-large">
+                    <div class="stat-number" id="total-essays">0</div>
+                    <div class="stat-label">Essays Written</div>
+                </div>
+                <div class="stat-card-large">
+                    <div class="stat-number" id="avg-score">0%</div>
+                    <div class="stat-label">Average Score</div>
+                </div>
+                <div class="stat-card-large">
+                    <div class="stat-number" id="study-hours">0</div>
+                    <div class="stat-label">Study Hours</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs Navigation -->
+        <section class="feature-section">
+            <div class="tabs-navigation">
+                <button class="tab-btn active" data-tab="quiz-history">Quiz History</button>
+                <button class="tab-btn" data-tab="essay-history">Essay History</button>
+                <button class="tab-btn" data-tab="test-history">Test History</button>
+            </div>
+
+            <!-- Quiz History Tab -->
+            <div id="quiz-history" class="tab-content active">
+                <h3>📋 Quiz Attempts</h3>
+                <div id="quiz-list" class="history-list"></div>
+            </div>
+
+            <!-- Essay History Tab -->
+            <div id="essay-history" class="tab-content" style="display: none;">
+                <h3>📝 Essay Attempts</h3>
+                <div id="essay-list" class="history-list"></div>
+            </div>
+
+            <!-- Test History Tab -->
+            <div id="test-history" class="tab-content" style="display: none;">
+                <h3>📄 Test Attempts</h3>
+                <div id="test-list" class="history-list"></div>
+            </div>
+        </section>
+
+        <!-- Actions Section -->
+        <section class="feature-section">
+            <h2>Actions</h2>
+            <div class="action-buttons">
+                <button id="export-btn" class="btn-primary">📥 Export Progress</button>
+                <button id="clear-btn" class="btn-secondary">🗑️ Clear History</button>
+                <button id="back-home-btn" class="btn-primary">🏠 Back Home</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CSS Prep Hub. Your Learning Dashboard</p>
+    </footer>
+
+    <script src="history.js"></script>
+</body>
+</html>
