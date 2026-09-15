@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzes - CSS Prep Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>🎯 Quizzes</h1>
+            <p>Quick Subject-wise Practice</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mock-tests.html">Mock Tests</a>
+        <a href="essay-writing.html">Essay Writing</a>
+        <a href="quiz.html" class="active">Quizzes</a>
+        <a href="resources.html">Resources</a>
+        <a href="history.html">My Progress</a>
+    </nav>
+
+    <main>
+        <!-- Quiz Selection View -->
+        <section id="quiz-selection" class="feature-section">
+            <h2>Choose a Subject</h2>
+            <div class="subjects-grid">
+                <div class="subject-card-large" onclick="selectSubject('gen-science')">
+                    <div class="subject-icon-large">🔬</div>
+                    <h3>General Science</h3>
+                    <p>Physics, Chemistry, Biology & Reasoning</p>
+                    <button class="btn-card">Start Quiz</button>
+                </div>
+                <div class="subject-card-large" onclick="selectSubject('islamic-studies')">
+                    <div class="subject-icon-large">🕌</div>
+                    <h3>Islamic Studies</h3>
+                    <p>Quran, Hadith & Islamic History</p>
+                    <button class="btn-card">Start Quiz</button>
+                </div>
+                <div class="subject-card-large" onclick="selectSubject('pak-studies')">
+                    <div class="subject-icon-large">🇵🇰</div>
+                    <h3>Pakistan Studies</h3>
+                    <p>History, Geography & Economics</p>
+                    <button class="btn-card">Start Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Taking View -->
+        <section id="quiz-taking" class="feature-section" style="display: none;">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <h2 id="quiz-title"></h2>
+                    <p id="question-indicator"></p>
+                </div>
+                <div class="timer-section">
+                    <div class="timer-box">
+                        <div class="timer-label">Time Left</div>
+                        <div class="timer-display" id="quiz-timer">10:00</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+            <div class="question-display">
+                <div class="question-text">
+                    <h3 id="current-question"></h3>
+                </div>
+                <div class="options-grid" id="options-grid"></div>
+            </div>
+
+            <div class="quiz-navigation">
+                <button id="prev-question-btn" class="btn-secondary">← Previous</button>
+                <button id="next-question-btn" class="btn-primary">Next →</button>
+                <button id="submit-quiz-btn" class="btn-success" style="display: none;">✓ Submit Quiz</button>
+            </div>
+        </section>
+
+        <!-- Quiz Results View -->
+        <section id="quiz-results" class="feature-section" style="display: none;">
+            <div class="results-container">
+                <h2>🎉 Quiz Completed!</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="quiz-score-percentage">0%</span>
+                    </div>
+                    <div class="score-details">
+                        <p>Score: <strong id="quiz-score-value">0/0</strong></p>
+                        <p>Correct: <strong id="quiz-correct-count">0</strong></p>
+                        <p>Incorrect: <strong id="quiz-incorrect-count">0</strong></p>
+                        <p>Unanswered: <strong id="quiz-unanswered-count">0</strong></p>
+                    </div>
+                </div>
+
+                <div class="answer-review">
+                    <h3>Answer Review</h3>
+                    <div id="quiz-review-container"></div>
+                </div>
+
+                <div class="results-actions">
+                    <button id="retry-quiz-btn" class="btn-primary">🔄 Retry Quiz</button>
+                    <button id="quiz-home-btn" class="btn-secondary">🏠 Back Home</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CSS Prep Hub. Quiz Platform</p>
+    </footer>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
