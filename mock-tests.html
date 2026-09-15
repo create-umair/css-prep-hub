@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Tests - CSS Prep Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>📋 Mock Tests</h1>
+            <p>Comprehensive Practice Tests</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mock-tests.html" class="active">Mock Tests</a>
+        <a href="essay-writing.html">Essay Writing</a>
+        <a href="quiz.html">Quizzes</a>
+        <a href="resources.html">Resources</a>
+        <a href="history.html">My Progress</a>
+    </nav>
+
+    <main>
+        <!-- Test Selection View -->
+        <section id="test-selection" class="feature-section">
+            <h2>Select Subject & Test</h2>
+            <div class="subject-filter">
+                <button class="filter-btn active" data-subject="all">All Subjects</button>
+                <button class="filter-btn" data-subject="english-precis">English Precis</button>
+                <button class="filter-btn" data-subject="gen-science">General Science</button>
+                <button class="filter-btn" data-subject="islamic-studies">Islamic Studies</button>
+                <button class="filter-btn" data-subject="pak-studies">Pakistan Studies</button>
+            </div>
+            <div id="test-list"></div>
+        </section>
+
+        <!-- Test Taking View -->
+        <section id="test-taking" class="feature-section" style="display: none;">
+            <div class="test-header">
+                <div class="test-info">
+                    <h2 id="test-title"></h2>
+                    <p id="test-instructions"></p>
+                </div>
+                <div class="timer-section">
+                    <div class="timer-box">
+                        <div class="timer-label">Time Left</div>
+                        <div class="timer-display" id="test-timer">10:00</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="questions-container"></div>
+
+            <div class="test-actions">
+                <button id="save-test-btn" class="btn-primary">💾 Save Progress</button>
+                <button id="submit-test-btn" class="btn-success">✓ Submit Test</button>
+                <button id="cancel-test-btn" class="btn-secondary">← Back</button>
+            </div>
+        </section>
+
+        <!-- Results View -->
+        <section id="test-results" class="feature-section" style="display: none;">
+            <div class="results-container">
+                <h2>✓ Test Completed!</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="score-percentage">0%</span>
+                    </div>
+                    <div class="score-details">
+                        <p>Score: <strong id="score-value">0/0</strong></p>
+                        <p>Correct: <strong id="correct-count">0</strong></p>
+                        <p>Incorrect: <strong id="incorrect-count">0</strong></p>
+                        <p>Unanswered: <strong id="unanswered-count">0</strong></p>
+                    </div>
+                </div>
+
+                <div class="answer-review">
+                    <h3>Answer Review</h3>
+                    <div id="review-container"></div>
+                </div>
+
+                <div class="results-actions">
+                    <button id="take-another-btn" class="btn-primary">📋 Take Another Test</button>
+                    <button id="back-home-btn" class="btn-secondary">🏠 Back Home</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CSS Prep Hub. Mock Test Platform</p>
+    </footer>
+
+    <script src="mock-tests.js"></script>
+</body>
+</html>
