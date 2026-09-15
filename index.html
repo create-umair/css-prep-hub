@@ -8,119 +8,126 @@
 </head>
 <body>
     <header>
-        <h1>CSS Prep Hub</h1>
-        <p>Free Mock Tests & Study Resources for Pakistan CSS Exam</p>
+        <div class="header-container">
+            <h1>📚 CSS Prep Hub</h1>
+            <p>Pakistan's Premier Mock Test & Study Platform</p>
+        </div>
     </header>
+
     <nav>
-        <a href="#subjects" class="active">Subjects</a>
-        <a href="#mock-tests">Mock Tests</a>
-        <a href="#affairs">Current Affairs</a>
-        <a href="#tips">Study Tips</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="mock-tests.html">Mock Tests</a>
+        <a href="essay-writing.html">Essay Writing</a>
+        <a href="quiz.html">Quizzes</a>
+        <a href="resources.html">Resources</a>
+        <a href="history.html">My Progress</a>
     </nav>
+
     <main>
-        <section id="subjects" class="feature-section">
-            <h2>Compulsory Subjects</h2>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Master Your CSS Exam Preparation</h2>
+                <p>Complete study platform with mock tests, essay writing practice, and current affairs updates</p>
+                <div class="hero-buttons">
+                    <a href="mock-tests.html" class="btn-primary">Start Mock Tests</a>
+                    <a href="essay-writing.html" class="btn-secondary">Practice Essays</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2>Why Choose CSS Prep Hub?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>100+ Mock Tests</h3>
+                    <p>Comprehensive tests across all CSS subjects with detailed explanations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Essay Writing Platform</h3>
+                    <p>Practice essays with customizable timer and word counter</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Track your performance and identify weak areas</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Live Updates</h3>
+                    <p>Current affairs and latest CSS news integrated</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subjects Section -->
+        <section class="subjects-section">
+            <h2>CSS Subjects</h2>
             <div class="subject-grid">
                 <div class="subject-card" data-subject="english-essay">
-                    <img src="https://via.placeholder.com/400x180/006600/ffffff?text=English+Essay" alt="English Essay">
-                    <div class="subject-card-content">
-                        <h3>English Essay</h3>
-                        <p>Practice structured writing on topical issues with timed mock tests.</p>
-                        <a href="#" class="btn-explore">Explore Mock Tests →</a>
-                    </div>
+                    <div class="subject-icon">✍️</div>
+                    <h3>English Essay</h3>
+                    <p>Master essay writing with guided practice</p>
+                    <a href="essay-writing.html?subject=english-essay" class="btn-card">Start Now</a>
                 </div>
                 <div class="subject-card" data-subject="english-precis">
-                    <img src="https://via.placeholder.com/400x180/006600/ffffff?text=English+Precis+%26+Composition" alt="English Precis & Composition">
-                    <div class="subject-card-content">
-                        <h3>English Precis & Composition</h3>
-                        <p>Sharpen grammar, précis writing and comprehension skills.</p>
-                        <a href="#" class="btn-explore">Explore Mock Tests →</a>
-                    </div>
+                    <div class="subject-icon">📖</div>
+                    <h3>English Precis</h3>
+                    <p>Sharpen comprehension & précis skills</p>
+                    <a href="mock-tests.html?subject=english-precis" class="btn-card">Start Now</a>
                 </div>
                 <div class="subject-card" data-subject="gen-science">
-                    <img src="https://via.placeholder.com/400x180/006600/ffffff?text=General+Science+%26+Ability" alt="General Science & Ability">
-                    <div class="subject-card-content">
-                        <h3>General Science & Ability</h3>
-                        <p>Test physics, biology, chemistry and quantitative reasoning.</p>
-                        <a href="#" class="btn-explore">Explore Mock Tests →</a>
-                    </div>
+                    <div class="subject-icon">🔬</div>
+                    <h3>General Science</h3>
+                    <p>Test science and reasoning skills</p>
+                    <a href="quiz.html?subject=gen-science" class="btn-card">Start Now</a>
                 </div>
                 <div class="subject-card" data-subject="islamic-studies">
-                    <img src="https://via.placeholder.com/400x180/006600/ffffff?text=Islamic+Studies" alt="Islamic Studies">
-                    <div class="subject-card-content">
-                        <h3>Islamic Studies</h3>
-                        <p>Cover Quran, Hadith, Islamic history and comparative religion.</p>
-                        <a href="#" class="btn-explore">Explore Mock Tests →</a>
-                    </div>
+                    <div class="subject-icon">🕌</div>
+                    <h3>Islamic Studies</h3>
+                    <p>Quiz on Islamic knowledge</p>
+                    <a href="quiz.html?subject=islamic-studies" class="btn-card">Start Now</a>
                 </div>
                 <div class="subject-card" data-subject="pak-studies">
-                    <img src="https://via.placeholder.com/400x180/006600/ffffff?text=Pakistan+Studies" alt="Pakistan Studies">
-                    <div class="subject-card-content">
-                        <h3>Pakistan Studies</h3>
-                        <p>Master history, geography, economy and foreign policy of Pakistan.</p>
-                        <a href="#" class="btn-explore">Explore Mock Tests →</a>
-                    </div>
+                    <div class="subject-icon">🇵🇰</div>
+                    <h3>Pakistan Studies</h3>
+                    <p>Master Pakistan's history & geography</p>
+                    <a href="quiz.html?subject=pak-studies" class="btn-card">Start Now</a>
                 </div>
             </div>
         </section>
 
-        <section id="mock-tests" class="feature-section">
-            <h2>Free Mock Tests</h2>
-            <div id="test-container">
-                <!-- Test interface will load here via JavaScript -->
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3 id="stat-attempts">0</h3>
+                <p>Tests Attempted</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="stat-essays">0</h3>
+                <p>Essays Written</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="stat-hours">0</h3>
+                <p>Study Hours</p>
             </div>
         </section>
 
-        <section id="affairs" class="feature-section">
-            <h2>Current Affairs Digest</h2>
-            <div class="current-affairs">
-                <div class="news-feed">
-                    <div class="news-item">
-                        <a href="#" target="_blank" rel="noopener">FPSC Announces CSS 2025 Written Exam Schedule</a>
-                        <time datetime="2024-10-26">October 26, 2024</time>
-                    </div>
-                    <div class="news-item">
-                        <a href="#" target="_blank" rel="noopener">New Climate Resilience Policy Approved for Sindh Province</a>
-                        <time datetime="2024-10-24">October 24, 2024</time>
-                    </div>
-                    <div class="news-item">
-                        <a href="#" target="_blank" rel="noopener">World Bank Report on Pakistan's Digital Economy Challenges</a>
-                        <time datetime="2024-10-22">October 22, 2024</time>
-                    </div>
-                    <div class="news-item">
-                        <a href="#" target="_blank" rel="noopener">Supreme Court Hearing on Provincial Fiscal Autonomy</a>
-                        <time datetime="2024-10-20">October 20, 2024</time>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="tips" class="feature-section">
-            <h2>CSS-Specific Study Tips</h2>
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <h4>Time Management</h4>
-                    <p>Use the 50/10 rule: 50 minutes focused study followed by 10 minutes break. Prevents burnout during long prep hours.</p>
-                </div>
-                <div class="tip-card">
-                    <h4>Answer Writing Practice</h4>
-                    <p>For every topic, write a full outline first. Then practice expanding it into a coherent answer under timed conditions.</p>
-                </div>
-                <div class="tip-card">
-                    <h4>Current Affairs Integration</h4>
-                    <p>Link static syllabus points to recent events. Example: Connect "Agriculture Sector" to latest wheat crisis news.</p>
-                </div>
-                <div class="tip-card">
-                    <h4>Mock Test Strategy</h4>
-                    <p>Take one full-length mock test weekly. Analyze mistakes: Is the error conceptual, factual or due to time pressure?</p>
-                </div>
-            </div>
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Ace Your CSS Exam?</h2>
+            <a href="mock-tests.html" class="btn-primary">Begin Your Journey</a>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 CSS Prep Hub. Educational use only. Refer to <a href="https://www.fpsc.gov.pk" target="_blank" rel="noopener">FPSC Official Website</a> for authoritative updates.</p>
-        <p>To expand: Replace placeholder images, add real past papers (with permissions) or integrate a free news API for current affairs.</p>
+        <p>&copy; 2024 CSS Prep Hub. Educational Platform for Pakistan CSS Exam</p>
+        <p><a href="https://www.fpsc.gov.pk" target="_blank" rel="noopener">Visit FPSC Official Website</a></p>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="home.js"></script>
 </body>
 </html>
